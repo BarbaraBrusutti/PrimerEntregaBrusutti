@@ -1,0 +1,24 @@
+body {
+    background-color: palevioletred;
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    color: bisque;
+    text-align: center;
+    font-size: 150px;
+}
+
+h2 {
+    text-align: center;
+}
+
+@media only screen and (max-width: 450px) {
+
+    h1{
+        font-size: 95px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+}
