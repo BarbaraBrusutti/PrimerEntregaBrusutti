@@ -24,6 +24,8 @@ const arrayReserva = [
   reservaSeis,
 ];
 
+/*nueva reserva */
+
 const formulario = document.getElementById("formulario");
 formulario.addEventListener("submit", (e) => {
   e.preventDefault(); 
@@ -39,6 +41,8 @@ formulario.addEventListener("submit", (e) => {
   formulario.reset();
   console.log("Tu reserva se realizo con exito!")}
  })
+
+ /* modificacion reserva*/
 
 const formulario2 = document.getElementById("formulario2")
  formulario2.addEventListener("submit", (e) => {
@@ -58,6 +62,8 @@ const formulario2 = document.getElementById("formulario2")
 
  })
 
+ /*cancelacion reserva */
+
  const formulario3 = document.getElementById("formulario3");
  formulario3.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -70,6 +76,26 @@ const formulario2 = document.getElementById("formulario2")
   console.log( "Su reserva se ha cancelado con exito !");
   formulario3.reset(); })
  
+/* MODO OSCURO */
+
+const btnFondo = document.getElementById("btnFondo");
+btnFondo.addEventListener("click",() => {
+document.body.classList.toggle("dark");
+
+if(document.body.classList.contains("dark")) {
+  localStorage.setItem("modo", "dark");
+} else {
+  localStorage.setItem("modo", "light");
+}
+
+})
+
+const modo = localStorage.getItem("modo");
+if (modo === "dark") {
+    document.body.classList.add("dark");
+} else {
+    document.body.classList.remove("dark");
+}
 
 
 

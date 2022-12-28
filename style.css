@@ -23,6 +23,18 @@ h2 {
     color: white;
     text-align: center;
 }
+#modoOscuro {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 10px;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.dark {
+    background-color: black;
+    color: beige;
+}
 
 @media only screen and (max-width: 450px) {
 
