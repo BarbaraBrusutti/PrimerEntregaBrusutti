@@ -23,85 +23,53 @@ const arrayReserva = [
   reservaCinco,
   reservaSeis,
 ];
-console.log(arrayReserva);
 
+const formulario = document.getElementById("formulario");
+formulario.addEventListener("submit", (e) => {
+  e.preventDefault(); 
+  let fecha = document.getElementById("fecha1");
+  let nColaboradores = document.getElementById("nColaboradores1");
+  let nHoras = document.getElementById("nHoras1");
 
-
-function menu () {
-  alert("Bienvenidos a Beglitter! ");
-  let opcion = parseInt(prompt("Seleccione una opcion : \n 1- Quiero reservar \n  2-Quiero modificar mi reserva \n  3- Quiero cancelar mi reserva \n 4- Salir " ));
-  return opcion;
-}
-
-let opcion = menu ();
-switch (opcion) {
-  case 1:
-    alert(" 9, 10, 17, 23, 30, 31 de Diciembre OCUPADOS");
-    nuevaReserva();
-    break;
-  case 2:
-    modificacionReserva();
-    break;
-  case 3:
-    cancelacionReserva();
-    break;
-  case 4:
-    salir();
-    break;
-  default:
-    alert("Opcion no disponible");
-    break;
-}
-
-/* funcion para nueva reserva*/
-
-function nuevaReserva() {
-  let fecha = prompt(" Ingrese la fecha: (Ej: 25/8) ");
-  let nColaboradores = prompt(" Cantidad de colaboradores. (Solo numeros, max 3)");
-  let nHoras = prompt(" Cantidad de Hs del servicio. ( Solo numeros, max 4)");
-  let reserva = new Reserva(fecha, nColaboradores, nHoras);
-  if ( reserva.nColaboradores > 3 || reserva.nHoras > 3)  { alert("EEROR"); 
-}
-else { 
+  let reserva = new Reserva (fecha.value, nColaboradores.value, nHoras.value);
+  if ( nHoras.value > 3 || nColaboradores.value > 3)  { console.log("ERROR"); 
+  } else { 
   arrayReserva.push(reserva);
   console.log(arrayReserva);
-  alert( "Tu reserva se ha realizado con exito!. Pronto recibiras un mail con la confirmacion.");
-   }
-}
+  formulario.reset();
+  console.log("Tu reserva se realizo con exito!")}
+ })
 
+const formulario2 = document.getElementById("formulario2")
+ formulario2.addEventListener("submit", (e) => {
+  e.preventDefault(); 
+ 
+ let fecha = document.getElementById("fecha2");
+ let reserva = arrayReserva.find((reserva) => reserva.fecha === fecha.value);
+ let indice = arrayReserva.indexOf(reserva);
+ let nuevaFecha = document.getElementById("nuevaFecha2");
+ let nColaboradores = document.getElementById("nColaboradores2");
+ let nHoras = document.getElementById("nHoras2");
+ let reservaModificada = new Reserva ( nuevaFecha.value, nColaboradores.value, nHoras.value);
+ arrayReserva.splice(indice, 1, reservaModificada);
+ console.log(arrayReserva);
+ formulario2.reset();
+ console.log("Su reserva se modifico con exito !")
 
+ })
 
-/* funcion para modificacion de reserva */
+ const formulario3 = document.getElementById("formulario3");
+ formulario3.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-function modificacionReserva() {
-  let fecha = prompt("Ingrese la fecha de su reserva (ej: 25/8)");
-  let reserva = arrayReserva.find((reserva) => reserva.fecha === fecha);
-  let indice = arrayReserva.indexOf(reserva);
-  let nuevaFecha = prompt("Ingrese nueva fecha : (Ej 25/8)");
-  let nColaboradores = prompt(
-    "Actualice cantidad de colaboradores.( Solo numeros, max 3)");
-  let nHoras = prompt("Actualice cantidad de Hs del servicio.( Solo numeros, max 4)");
-  let reservaModificada = new Reserva(nuevaFecha, nColaboradores, nHoras);
-  arrayReserva.splice(indice, 1, reservaModificada);
+  let fecha = document.getElementById("fecha3");
+  let reserva = arrayReserva.find((reserva) => reserva.fecha === fecha.value)
+  let indice = arrayReserva.indexOf(reserva)
+  arrayReserva.splice(indice, 1)
   console.log(arrayReserva);
-}
-
-/* funcion cancelacion de reserva*/
-
-function cancelacionReserva() {
-  let fecha = prompt("Ingresela fecha de su reserva (ej:25/8)");
-  let reserva = arrayReserva.find((reserva) => reserva.fecha === fecha);
-  let indice = arrayReserva.indexOf(reserva);
-  arrayReserva.splice(indice, 1);
-  console.log(arrayReserva);
-  alert("Su reserva ha sido cancelada con exito.");
-}
-
-/* funcion para salir */
-
-function salir() {
-  alert("Gracias por elegir Beglitter !");
-}
+  console.log( "Su reserva se ha cancelado con exito !");
+  formulario3.reset(); })
+ 
 
 
 
