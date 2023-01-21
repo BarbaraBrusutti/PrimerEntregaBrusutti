@@ -1,0 +1,10 @@
+[
+    {"fecha": "9/12", "nColaboradores":"2", "nHoras": "2" },
+    {"fecha": "10/12", "nColaboradores":"1", "nHoras": "1" },
+    {"fecha": "17/12", "nColaboradores":"1", "nHoras": "1" },
+    {"fecha": "23/12", "nColaboradores":"3", "nHoras": "3" },
+    {"fecha": "30/12", "nColaboradores":"3", "nHoras": "3" },
+    {"fecha": "31/12", "nColaboradores":"2", "nHoras": "2" },
+    {"fecha": "15/3", "nColaboradores":"1", "nHoras": "2" },
+    {"fecha": "24/3", "nColaboradores":"2", "nHoras": "3" }
+]

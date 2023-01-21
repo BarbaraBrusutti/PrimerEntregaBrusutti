@@ -136,20 +136,25 @@ if (modo === "dark") {
 } else {
     document.body.classList.remove("dark");
 }
-const contenedorQr = document.getElementById("contenedorQr");
-const options = {
-	method: 'POST',
-	headers: {
-		'content-type': 'application/json',
-		'X-RapidAPI-Key': '5d92d1c3cfmsh666f9a4c00450b4p14bdddjsn785fe41d808f',
-		'X-RapidAPI-Host': 'qrcode3.p.rapidapi.com'
-	},
-	body: '{"data":"https://linqr.app","image":{"uri":"icon://appstore","modules":true},"style":{"module":{"color":"black","shape":"default"},"inner_eye":{"shape":"default"},"outer_eye":{"shape":"default"},"background":{}},"size":{"width":200,"quiet_zone":4,"error_correction":"M"},"output":{"filename":"qrcode","format":"png"}}'
-};
 
-fetch('https://qrcode3.p.rapidapi.com/qrcode/text', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(error => console.log(error));
+
+ const listado = document.getElementById("listado");
+ const listadoReservas = "json/reservas.json";
+
+  fetch(listadoReservas)
+    .then( respuesta=> respuesta.json())
+ .then ( datos => {
+    datos.forEach ( reserva => {
+     listado.innerHTML += `
+      <h2>Fecha: ${reserva.fecha} </h2>
+      <h2> Cantidad de colaboradores: ${ reserva.nColaboradores}</h2>
+      <h2> Cantidad de horas: ${ reserva.nHoras} </h2>
+      <hr> `
+    })
+  })
+  .catch(error => console.log("error"))
+  .finally( () => console.log("proceso finalizado"))
+ 
+
 
   

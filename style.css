@@ -15,6 +15,19 @@ h2 {
     font-size: 20px;
     margin: 20px;
 }
+
+.accordion {
+    --bs-accordion-color: black;
+    --bs-body-bg:white;
+    --bs-accordion-border-color: white;
+    --bs-accordion-active-bg:white;
+    --bs-accordion-btn-color:black;
+    --bs-accordion-btn-focus-border-color:white;
+    --bs-primary-text:black;
+
+}
+
+
 #formularios {
     border: 3px yellow dotted ;
     margin: 20px;
