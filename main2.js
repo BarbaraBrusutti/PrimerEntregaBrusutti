@@ -8,16 +8,9 @@ class Reserva {
   }
 }
 
-const reservaUno = new Reserva("9/12", 2, 2);
-const reservaDos = new Reserva("10/12", 1, 1);
-const reservaTres = new Reserva("17/12", 1, 1);
-const reservaCuatro = new Reserva("23/12", 3, 3);
-const reservaCinco = new Reserva("30/12", 3, 3);
-const reservaSeis = new Reserva("31/12", 2, 2);
-
 /*array reservas */
 
-const arrayReserva = [ reservaUno, reservaDos, reservaTres,reservaCuatro, reservaCinco,reservaSeis ];
+const arrayReserva = [ ];
 
 /* formulario nueva reserva */
 
@@ -136,6 +129,21 @@ if (modo === "dark") {
 } else {
     document.body.classList.remove("dark");
 }
+
+/*  INFO RESERVAS */
+
+const listadoNuevo = document.getElementById("listadoNuevo");
+ botonNuevas.addEventListener ("click", () => {
+  /*const arrayReserva = JSON.parse(localStorage.getItem("Reserva"));*/
+  let aux = "";
+   arrayReserva.forEach( reserva => {
+     aux += `<h2>Fecha: ${reserva.fecha} </h2>
+     <h2> Cantidad de colaboradores: ${ reserva.nColaboradores}</h2>
+     <h2> Cantidad de horas: ${ reserva.nHoras} </h2>
+     <hr> `
+});
+
+ listadoNuevo.innerHTML = aux; })
 
 
  const listado = document.getElementById("listado");
